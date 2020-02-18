@@ -1,9 +1,10 @@
 print("This file is a series of mini programs I made while learning Python.")
 print("Please select a program from the following list.\n")
 print("'1' for Square Sequence.")
-print("'2' for Macro to Calorie Calculator.\n") 
+print("'2' for Macro to Calorie Calculator.")
+print("'3' for Random Name Generator.\n") 
            
-prog = int(input("Insert number the ID for the program you wish to use: "))
+prog = int(input("Insert ID for the program you wish to use: "))
 
 if (prog == 1):
     print("\nThe following program takes a number and increments it by 1")
@@ -30,7 +31,34 @@ if (prog == 2):
     fat = int(input("Insert fat in g: "))
     carbs = int(input("Insert carb in g: "))
     calories = (protein*4)+(fat*9)+(carbs*4)
-    print("\n" + str(calories))
+    print("\n" + str(calories) + " kcals or " + str(calories*4.184) + "kj")
     
 
+if (prog == 3):
+    repeat = "y"
+    print("\nThe following program selects a random name from a pool")
+    print("drawn from a text file.\n")
+    print("Please select gender.")
+    import random
+    gender = str(input("1 for Male or 2 for Female: "))
+    if (gender == "1"):
+        while (repeat == "y"):
+            name_file = open("male_name.txt").readlines() 
+            name_pull = name_file[random.randint(1,1001)]
 
+            names_list = name_pull.split()
+            chosen_name = random.choice(names_list)
+            print("\n" + chosen_name)
+            repeat = str(input("\nTry again (y/n)?: "))
+    elif (gender == "2"):
+        while (repeat == "y"):
+            name_file = open("female_name.txt").readlines() 
+            name_pull = name_file[random.randint(1,1001)]
+
+            names_list = name_pull.split()
+            chosen_name = random.choice(names_list)
+            print("\n" + chosen_name)
+            repeat = str(input("\nTry again (y/n)?: "))
+
+    
+        
