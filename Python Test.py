@@ -2,7 +2,8 @@ print("This file is a series of mini programs I made while learning Python.")
 print("Please select a program from the following list.\n")
 print("'1' for Square Sequence.")
 print("'2' for Macro to Calorie Calculator.")
-print("'3' for Random Name Generator.\n") 
+print("'3' for Random Name Generator.")
+print("'4' for Hangman.\n")
            
 prog = int(input("Insert ID for the program you wish to use: "))
 
@@ -61,4 +62,78 @@ if (prog == 3):
             repeat = str(input("\nTry again (y/n)?: "))
 
     
-        
+if (prog == 4):
+    import random
+    known = False
+    word_file = open("hangman_pool.txt").readlines()
+    word_pull = word_file[random.randint(1,116)]
+
+    word_list = word_pull.split()
+    cwrd = list(random.choice(word_list))
+    p = list("________")
+
+    char_1 = cwrd[0]
+    char_2 = cwrd[1]
+    char_3 = cwrd[2]
+    char_4 = cwrd[3]
+    char_5 = cwrd[4]
+    char_6 = cwrd[5]
+    char_7 = cwrd[6]
+    char_8 = cwrd[7]
+
+    your_1 = p[0]
+    your_2 = p[1]
+    your_3 = p[2]
+    your_4 = p[3]
+    your_5 = p[4]
+    your_6 = p[5]
+    your_7 = p[6]
+    your_8 = p[7]
+
+    attempts = 8
+
+    while (known == False)&(attempts > 0):
+        print(p)
+        print("Attempts remaining: " + str(attempts))
+        answer = cwrd
+        guess = str(input("Do you know the word (y/n)?: "))
+        if (guess == "y"):
+            guess = str(input("What's your call?: "))
+            if (guess == answer):
+                p == cwrd
+                print(answer)
+                print("SUCCESS")
+                
+                known = True
+            else:
+                print("FAILURE")
+        elif (guess == "n"):
+            guess = str(input("Pick a letter: "))
+            attempts-=1
+            if (guess == char_1):
+                p[0] = cwrd[0]   
+            if (guess == char_2):    
+                p[1] = cwrd[1]
+            if (guess == char_3):    
+                p[2] = cwrd[2]
+            if (guess == char_4):    
+                p[3] = cwrd[3]
+            if (guess == char_5):    
+                p[4] = cwrd[4]
+            if (guess == char_6):    
+                p[5] = cwrd[5]
+            if (guess == char_7):    
+                p[6] = cwrd[6]
+            if (guess == char_8):    
+                p[7] = cwrd[7]
+            if (p == cwrd):
+                print("YOU WIN")
+                known = True
+            if (attempts == 0):
+                print("YOU LOSE!")
+            
+
+
+
+
+    
