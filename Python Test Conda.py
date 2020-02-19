@@ -136,6 +136,19 @@ if (prog == 4):
                 print("YOU LOSE!")
             
 
+if (prog == 5):
+    from bokeh.plotting import figure, show, output_file
+    output_file("graph.html")
+    
+    x = [50, 15, 88]
+    y = [19, 22, 25]
+
+
+    p = figure()
+
+    p.vbar(x=x, top=y, width=0.5)
+
+    show(p)    
 
 
 print("\nTest ended, Python will close in 5 seconds")
