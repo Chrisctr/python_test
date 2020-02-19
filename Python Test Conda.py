@@ -5,7 +5,9 @@ print("Please select a program from the following list.\n")
 print("'1' for Square Sequence.")
 print("'2' for Macro to Calorie Calculator.")
 print("'3' for Random Name Generator.")
-print("'4' for Hangman.\n")
+print("'4' for Hangman.")
+print("'5' for Graph Maker.")
+print("'6' for While I'm Older.\n")
            
 prog = int(input("Insert ID for the program you wish to use: "))
 
@@ -137,6 +139,7 @@ if (prog == 4):
             
 
 if (prog == 5):
+    print("This program uses imported moduels to display a graph in HTML")
     from bokeh.plotting import figure, show, output_file
     output_file("graph.html")
     
@@ -151,5 +154,39 @@ if (prog == 5):
     show(p)    
 
 
+if (prog == 6): 
+    print("This program takes your age and tells you what you're older than.\n")
+    x = 0
+    age = int(input("Insert your age: "))
+    event_file = open("events.txt").readlines() 
+    import datetime
+    now = datetime.datetime.now()
+    while x < age:
+        if age < 110:
+            now = datetime.datetime.now()
+            calc = now.year - x
+            event_pull = str(event_file[x])
+            if event_pull == "hi":
+                continue
+            print(event_pull)
+           
+        
+            x+=1
+        else:
+            print("Liar")
+            break
+
+
+
+
+
+
 print("\nTest ended, Python will close in 5 seconds")
 time.sleep(5)
+
+
+
+
+
+
+
