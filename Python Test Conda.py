@@ -109,6 +109,7 @@ if (prog == 4):
                 known = True
             else:
                 print("FAILURE")
+                attempts-=1
         elif (guess == "n"):
             guess = str(input("Pick a letter: "))
             attempts-=1
@@ -137,5 +138,5 @@ if (prog == 4):
 
 
 
-print("\nTest ended, Python will close in 10 seconds")
-time.sleep(10)
+print("\nTest ended, Python will close in 5 seconds")
+time.sleep(5)
